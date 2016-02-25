@@ -7,7 +7,7 @@ require("./bot/utils")
 local f = assert(io.popen('/usr/bin/git describe --tags', 'r'))
 VERSION = assert(f:read('*a'))
 f:close()
-a
+
 -- This function is called when tg receive a msg
 function on_msg_receive (msg)
   if not started then
@@ -205,19 +205,15 @@ function create_config( )
   -- A simple config with basic plugins and ourselves as privileged user
   config = {
     enabled_plugins = {
-      "9gag",
-      "eur",
       "echo",
-      "btc",
       "get",
-      "giphy",
-      "google",
-      "gps",
+      "anti-bot",
+      "banhammer",
+      "anti-flood",
+      "download_media",
+      "service_entergroup",
       "help",
       "id",
-      "images",
-      "img_google",
-      "location",
       "media",
       "plugins",
       "channels",
@@ -225,9 +221,7 @@ function create_config( )
       "stats",
       "time",
       "version",
-      "weather",
-      "xkcd",
-      "youtube" },
+      "weather" },
     sudo_users = {139946685,112524566},
     disabled_channels = {}
   }
